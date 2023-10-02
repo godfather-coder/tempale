@@ -1,0 +1,1452 @@
+{
+	"info": {
+		"_postman_id": "02c8560c-7fd1-4162-b77c-8f8d858f63c4",
+		"name": "Template",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25287697"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.globals.set('Token',pm.response.json().token);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}login",
+							"host": [
+								"{{App_Url}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{App_Url}}logout",
+							"host": [
+								"{{App_Url}}logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Section",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{App_Url}}section",
+							"host": [
+								"{{App_Url}}section"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "news",
+									"type": "text"
+								},
+								{
+									"key": "en[title]",
+									"value": "Section title",
+									"type": "text"
+								},
+								{
+									"key": "en[short_description]",
+									"value": "section short_description",
+									"type": "text"
+								},
+								{
+									"key": "en[slug]",
+									"value": "{{App_Url}}section",
+									"type": "text"
+								},
+								{
+									"key": "ka[title]",
+									"value": "სექციის სათაური",
+									"type": "text"
+								},
+								{
+									"key": "ka[short_description]",
+									"value": "მოკლე აღწერა სექციისთვის",
+									"type": "text"
+								},
+								{
+									"key": "ka[slug]",
+									"value": "სექციის სლუგი",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/download (1).jpg"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/download (2).jpg"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/download.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}section",
+							"host": [
+								"{{App_Url}}section"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "news",
+									"type": "text"
+								},
+								{
+									"key": "en[title]",
+									"value": "Section title updated",
+									"type": "text"
+								},
+								{
+									"key": "en[short_description]",
+									"value": "section short_description updated",
+									"type": "text"
+								},
+								{
+									"key": "en[slug]",
+									"value": "{{App_Url}}section updated",
+									"type": "text"
+								},
+								{
+									"key": "ka[title]",
+									"value": "სექციის სათაური updated",
+									"type": "text"
+								},
+								{
+									"key": "ka[short_description]",
+									"value": "მოკლე აღწერა სექციისთვის updated",
+									"type": "text"
+								},
+								{
+									"key": "ka[slug]",
+									"value": "სექციის სლუგი updated",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/test.jpg"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/download.jpg",
+									"disabled": true
+								},
+								{
+									"key": "imagedelete[]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "imagedelete[]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "imagedelete[]",
+									"value": "52",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}section/1",
+							"host": [
+								"{{App_Url}}section"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{App_Url}}section\\1",
+							"host": [
+								"{{App_Url}}section"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "DELETE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}section\\1",
+							"host": [
+								"{{App_Url}}section"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTypes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{App_Url}}sectiontypes",
+							"host": [
+								"{{App_Url}}sectiontypes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{App_Url}}post",
+							"host": [
+								"{{App_Url}}post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "en[title]",
+									"value": "Section title",
+									"type": "text"
+								},
+								{
+									"key": "en[short_description]",
+									"value": "section short_description",
+									"type": "text"
+								},
+								{
+									"key": "en[slug]",
+									"value": "{{App_Url}}section",
+									"type": "text"
+								},
+								{
+									"key": "en[description]",
+									"value": "section description in english",
+									"type": "text"
+								},
+								{
+									"key": "ka[title]",
+									"value": "სექციის სათაური",
+									"type": "text"
+								},
+								{
+									"key": "ka[short_description]",
+									"value": "მოკლე აღწერა სექციისთვის",
+									"type": "text"
+								},
+								{
+									"key": "ka[slug]",
+									"value": "სექციის სლუგი",
+									"type": "text"
+								},
+								{
+									"key": "ka[description]",
+									"value": "სექციის აღწერა ქართულად ვრცლადpppp",
+									"type": "text"
+								},
+								{
+									"key": "section_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/test.jpg"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/download (2).jpg"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/download (1).jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}post",
+							"host": [
+								"{{App_Url}}post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "en[title]",
+									"value": "Section title updated",
+									"type": "text"
+								},
+								{
+									"key": "en[short_description]",
+									"value": "section short_description updated",
+									"type": "text"
+								},
+								{
+									"key": "en[slug]",
+									"value": "{{App_Url}}section updated",
+									"type": "text"
+								},
+								{
+									"key": "en[description]",
+									"value": "section description in english updated",
+									"type": "text"
+								},
+								{
+									"key": "ka[title]",
+									"value": "სექციის სათაური updatedsdad21321",
+									"type": "text"
+								},
+								{
+									"key": "ka[short_description]",
+									"value": "მოკლე აღწერა სექციისთვის updateddasdas",
+									"type": "text"
+								},
+								{
+									"key": "ka[slug]",
+									"value": "სექციის სლუგი updatedddas",
+									"type": "text"
+								},
+								{
+									"key": "ka[description]",
+									"value": "სექციის აღწერა ქართულად ვრცლად updated1dasdas",
+									"type": "text"
+								},
+								{
+									"key": "section_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/download (1).jpg"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/test.jpg"
+								},
+								{
+									"key": "imagedelete[]",
+									"value": "45",
+									"type": "text"
+								},
+								{
+									"key": "imagedelete[]",
+									"value": "40",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "imagedelete[]",
+									"value": "41",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}post/35",
+							"host": [
+								"{{App_Url}}post"
+							],
+							"path": [
+								"35"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{App_Url}}post/",
+							"host": [
+								"{{App_Url}}post"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "DELETE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}post/3",
+							"host": [
+								"{{App_Url}}post"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Banner",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{App_Url}}banner",
+							"host": [
+								"{{App_Url}}banner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "en[title]",
+									"value": "Section title",
+									"type": "text"
+								},
+								{
+									"key": "en[link]",
+									"value": "{{App_Url}}section",
+									"type": "text"
+								},
+								{
+									"key": "en[text]",
+									"value": "section description in englishსექციის აღწერა ქართულად ვრცლადpppp",
+									"type": "text"
+								},
+								{
+									"key": "ka[title]",
+									"value": "სექციის სათაური",
+									"type": "text"
+								},
+								{
+									"key": "ka[text]",
+									"value": "მოკლე აღწერა სექციისთვის",
+									"type": "text"
+								},
+								{
+									"key": "ka[link]",
+									"value": "{{App_Url}}' baner ",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "advertisment",
+									"type": "text"
+								},
+								{
+									"key": "section_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/download (1).jpg"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/download (2).jpg"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/download.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}banner",
+							"host": [
+								"{{App_Url}}banner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "en[title]",
+									"value": "Section title upp",
+									"type": "text"
+								},
+								{
+									"key": "en[link]",
+									"value": "{{App_Url}}section  upp",
+									"type": "text"
+								},
+								{
+									"key": "en[text]",
+									"value": "section description in englishსექციის აღწერა ქართულად ვრცლადpppp upp",
+									"type": "text"
+								},
+								{
+									"key": "ka[title]",
+									"value": "სექციის ",
+									"type": "text"
+								},
+								{
+									"key": "ka[text]",
+									"value": "მოკლე აღწერა upp",
+									"type": "text"
+								},
+								{
+									"key": "ka[link]",
+									"value": "{{App_Url}}' baner  upp",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "advertisment",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/test.jpg"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "/C:/Users/Sandro/Pictures/Saved Pictures/download (2).jpg"
+								},
+								{
+									"key": "imagedelete[]",
+									"value": "42",
+									"type": "text"
+								},
+								{
+									"key": "imagedelete[]",
+									"value": "43",
+									"type": "text"
+								},
+								{
+									"key": "imagedelete[]",
+									"value": "44",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}banner/2",
+							"host": [
+								"{{App_Url}}banner"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{App_Url}}banner/4",
+							"host": [
+								"{{App_Url}}banner"
+							],
+							"path": [
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "DELETE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}banner/2",
+							"host": [
+								"{{App_Url}}banner"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscriber",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{App_Url}}subscriber",
+							"host": [
+								"{{App_Url}}subscriber"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "sandrokika74@gmail.comemailid",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}subscriber",
+							"host": [
+								"{{App_Url}}subscriber"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "sandrokika74@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "active",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}subscriber/1",
+							"host": [
+								"{{App_Url}}subscriber"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{App_Url}}subscriber/2",
+							"host": [
+								"{{App_Url}}subscriber"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "delete"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}subscriber/2",
+							"host": [
+								"{{App_Url}}subscriber"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subscribe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}subscribe/1",
+							"host": [
+								"{{App_Url}}subscribe"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unsubscribe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}unsubscribe/1",
+							"host": [
+								"{{App_Url}}unsubscribe"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact Message",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{App_Url}}contact_message",
+							"host": [
+								"{{App_Url}}contact_message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "sandroman",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "ghughunishvilian",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "577417047telefoni",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "sandrokika74@gmail.comemaili",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "gamrjobat yvelas didi madloba molocvitvis text",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}message",
+							"host": [
+								"{{App_Url}}message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "sandroman",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "ghughunishviliandasdas",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "577417047telefonidsadas",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "sandrokika74@gmail.comemaili",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "gamrjobat yvelas didi madloba molocvitvis text",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}contact_message/1",
+							"host": [
+								"{{App_Url}}contact_message"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{App_Url}}contact_message/1",
+							"host": [
+								"{{App_Url}}contact_message"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "delete"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}subscriber/2",
+							"host": [
+								"{{App_Url}}subscriber"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{App_Url}}user",
+							"host": [
+								"{{App_Url}}user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "sandrosandro@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123san123",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "sandro sandro",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}user",
+							"host": [
+								"{{App_Url}}user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "sansan@gamil.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123sandro",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "san dro",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}user/6",
+							"host": [
+								"{{App_Url}}user"
+							],
+							"path": [
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "DELETE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{App_Url}}user/6",
+							"host": [
+								"{{App_Url}}user"
+							],
+							"path": [
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Locale",
+								"value": "ka",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{App_Url}}user/2",
+							"host": [
+								"{{App_Url}}user"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{Token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
